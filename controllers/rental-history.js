@@ -8,7 +8,7 @@ exports.addRentalHistory = promise(async (req, res) => {
     const body = req.body
 
     const product = await Product.findById(body.productId)
-    if(!product) throw new Exceptions.NotFound("No product found")
+    if (!product) throw new Exceptions.NotFound("No product found")
 
     const newRentalHistory = new RentalHistory({
         ...body,
@@ -40,8 +40,15 @@ exports.getSingleRentalHistory = promise(async (req, res) => {
     const rentalHistory = await RentalHistory.findOne({ _id: body.rentalHistoryId, isPaid: true })
         .populate("productId")
     if (!rentalHistory) throw new Exceptions.NotFound("No rental history found")
-    
+
     fs.writeFileSync(`./upload/${body.rentalHistoryId}.txt`, `${rentalHistory}`)
 
     res.status(200).json({ rentalHistory })
+})
+
+exports.deleteRentalHistory = promise(async (req, res) => {
+    const body = req.body
+
+    await RentalHistory.findByIdAndDelete(body.rentalHistoryId)
+    res.status(200).json({ message: "Successfully deleted rental history" })
 })

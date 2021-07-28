@@ -103,12 +103,22 @@ password: 12345
 
 - rental-history/get-all :get
 
-### to get single history
+### to get a single rental history
 
 - rental-history/get-single :post
 
 ```
 {
-    rentalHistoryId
+    rentalHistoryId:
+}
+```
+
+### to delete a rental history
+
+- rental-history/delete :delete
+
+```
+{
+    rentalHistoryId:
 }
 ```

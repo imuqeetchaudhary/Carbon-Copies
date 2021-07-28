@@ -31,5 +31,6 @@ router
     .post("/add", authentication, validation(addRentalHistorySchema), upload.array("image"), rentalHistory.addRentalHistory)
     .get("/get-all", authentication, rentalHistory.getAllRentalHistories)
     .post("/get-single", authentication, validation(getRentalHistorySchema), rentalHistory.getSingleRentalHistory)
+    .delete("/delete", authentication, validation(getRentalHistorySchema), rentalHistory.deleteRentalHistory)
 
 module.exports = router
