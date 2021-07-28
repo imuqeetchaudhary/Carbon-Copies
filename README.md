@@ -42,3 +42,31 @@ password: 12345
 ### to view the profile of an authenticated user
 
 - user/profile :post
+
+## Routes for Products
+
+### to add a new product
+
+- product/add :post
+
+```
+{
+    productName:
+    productDescription:
+    productPrice:
+}
+```
+
+### to get all products
+
+- product/get-all :get
+
+### to get single product
+
+- product/get-single :post
+
+```
+{
+    productId:
+}
+```
