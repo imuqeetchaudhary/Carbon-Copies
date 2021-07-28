@@ -70,3 +70,44 @@ password: 12345
     productId:
 }
 ```
+
+## Routes for Rental Histories
+
+### to add a rental history
+
+- rental-history/add :post
+
+```
+{
+    fistName:
+    middleName:
+    lastName:
+    street:
+    city:
+    zipCode:
+    dobMonth:
+    dobDate:
+    dobYear:
+    heightFeet:
+    heightInches:
+    weight:
+    hairColor:
+    eyeColor:
+    gender:
+    image: (2 images needs to be uploaded i.e. 1 for idPicture and 1 for idSignature)
+}
+```
+
+### to get all rental histories
+
+- rental-history/get-all :get
+
+### to get single history
+
+- rental-history/get-single :post
+
+```
+{
+    rentalHistoryId
+}
+```
