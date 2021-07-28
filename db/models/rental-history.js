@@ -78,6 +78,9 @@ const rentalHistorySchema = new schema({
         type: String,
         require: true
     },
+    price: {
+        type: Number
+    },
     isPaid: {
         type: Boolean,
         default: false

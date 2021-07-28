@@ -1,4 +1,5 @@
 const { RentalHistory } = require("../db/models/rental-history")
+const { Product } = require("../db/models/product")
 const Exceptions = require("../utils/custom-exceptions")
 const { promise } = require("../middlewares/promises")
 const fs = require("fs")
@@ -6,11 +7,15 @@ const fs = require("fs")
 exports.addRentalHistory = promise(async (req, res) => {
     const body = req.body
 
+    const product = await Product.findById(body.productId)
+    if(!product) throw new Exceptions.NotFound("No product found")
+
     const newRentalHistory = new RentalHistory({
         ...body,
         userId: req.user._id,
         idPicture: req.files[0].filename,
         idSignature: req.files[1].filename,
+        price: product.productPrice
     })
     await newRentalHistory.save()
     res.status(200).json({
