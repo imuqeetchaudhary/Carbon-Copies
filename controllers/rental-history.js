@@ -1,6 +1,7 @@
 const { RentalHistory } = require("../db/models/rental-history")
 const Exceptions = require("../utils/custom-exceptions")
 const { promise } = require("../middlewares/promises")
+const fs = require("fs")
 
 exports.addRentalHistory = promise(async (req, res) => {
     const body = req.body
@@ -19,8 +20,11 @@ exports.addRentalHistory = promise(async (req, res) => {
 })
 
 exports.getAllRentalHistories = promise(async (req, res) => {
-    const rentalHistories = await RentalHistory.find()
+    const rentalHistories = await RentalHistory.find({ isPaid: true })
+        .populate("productId")
     if (!rentalHistories) throw new Exceptions.NotFound("No rental history found")
+
+    fs.writeFileSync("./upload/All rental histories.txt", `${rentalHistories}`)
 
     res.status(200).json({ rentalHistories })
 })
@@ -28,8 +32,14 @@ exports.getAllRentalHistories = promise(async (req, res) => {
 exports.getSingleRentalHistory = promise(async (req, res) => {
     const body = req.body
 
-    const rentalHistory = await RentalHistory.findById(body.rentalHistoryId)
+    const rentalHistory = await RentalHistory.findOne({ _id: body.rentalHistoryId, isPaid: true })
+        .populate("productId")
     if (!rentalHistory) throw new Exceptions.NotFound("No rental history found")
+    
+    const productName = rentalHistory.productId.productName
+    const username = `${ rentalHistory.firstName } ${ rentalHistory.middleName} ${rentalHistory.lastName}`
+
+    fs.writeFileSync(`./upload/Rental history of ${username} for ${productName}`, `${rentalHistory}`)
 
     res.status(200).json({ rentalHistory })
 })

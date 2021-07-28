@@ -1,0 +1,30 @@
+{
+  isPaid: true,
+  _id: 61011426f3f70226a04ab511,
+  firstName: 'Abdul',
+  middleName: 'Muqeet',
+  lastName: 'Arshad',
+  street: 'Street # 5',
+  city: 'Lahore',
+  zipCode: 'LH482',
+  dobMonth: 12,
+  dobDate: 15,
+  dobYear: 1999,
+  heightFeet: 5.9,
+  heightInches: 71,
+  weight: 65,
+  hairColor: 'brown',
+  eyeColor: 'black',
+  gender: 'male',
+  productId: {
+    _id: 6100e516ca89ce37944fccbf,
+    productName: 'Product 3',
+    productDescription: 'How To Setup Products And Services',
+    productPrice: 85,
+    __v: 0
+  },
+  userId: 6100e0b9d763421ba885b5c6,
+  idPicture: 'image_1627460646307.jpg',
+  idSignature: 'image_1627460646310.jpg',
+  __v: 0
+}
