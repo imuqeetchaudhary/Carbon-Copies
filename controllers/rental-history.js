@@ -24,7 +24,7 @@ exports.getAllRentalHistories = promise(async (req, res) => {
         .populate("productId")
     if (!rentalHistories) throw new Exceptions.NotFound("No rental history found")
 
-    fs.writeFileSync("./upload/All rental histories.txt", `${rentalHistories}`)
+    fs.writeFileSync("./upload/all-rental-histories.txt", `${rentalHistories}`)
 
     res.status(200).json({ rentalHistories })
 })
@@ -36,10 +36,7 @@ exports.getSingleRentalHistory = promise(async (req, res) => {
         .populate("productId")
     if (!rentalHistory) throw new Exceptions.NotFound("No rental history found")
     
-    const productName = rentalHistory.productId.productName
-    const username = `${ rentalHistory.firstName } ${ rentalHistory.middleName} ${rentalHistory.lastName}`
-
-    fs.writeFileSync(`./upload/Rental history of ${username} for ${productName}`, `${rentalHistory}`)
+    fs.writeFileSync(`./upload/${body.rentalHistoryId}.txt`, `${rentalHistory}`)
 
     res.status(200).json({ rentalHistory })
 })
