@@ -6,6 +6,10 @@ const rentalHistorySchema = new schema({
         type: schema.Types.ObjectId,
         ref: "User"
     },
+    productId: {
+        type: schema.Types.ObjectId,
+        ref: "Product"
+    },
     firstName: {
         type: String,
         require: true

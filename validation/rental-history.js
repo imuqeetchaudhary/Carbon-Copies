@@ -1,6 +1,7 @@
 const yup = require("yup")
 
 exports.addRentalHistorySchema = yup.object({
+    productId: yup.string().required(),
     fistName: yup.string().required(),
     middleName: yup.string().required(),
     lastName: yup.string().required(),
