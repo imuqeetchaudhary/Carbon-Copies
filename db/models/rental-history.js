@@ -73,6 +73,10 @@ const rentalHistorySchema = new schema({
     idSignature: {
         type: String,
         require: true
+    },
+    isPaid: {
+        type: Boolean,
+        default: false
     }
 })
 
