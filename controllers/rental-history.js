@@ -20,7 +20,8 @@ exports.addRentalHistory = promise(async (req, res) => {
     await newRentalHistory.save()
     res.status(200).json({
         message: "Successfully added new rental history",
-        rentalHistory: newRentalHistory
+        rentalHistory: newRentalHistory,
+        product: product
     })
 })
 
