@@ -1,0 +1,31 @@
+{
+  isPaid: true,
+  _id: 6108e2f2c49e3b0004425ab1,
+  firstName: 'Faisal',
+  middleName: 'Rehman',
+  lastName: 'Rehman',
+  street: 'Anarkali Bazar Lahore,Pakistan',
+  city: 'Lahore',
+  zipCode: '54000',
+  dobMonth: 8,
+  dobDate: 17,
+  dobYear: 1999,
+  heightFeet: 5,
+  heightInches: 36,
+  weight: 200,
+  hairColor: 'White',
+  eyeColor: 'Black',
+  gender: 'Male',
+  productId: {
+    _id: 6100e4beca89ce37944fccbb,
+    productName: 'Product 1',
+    productDescription: 'Quick Tour And Setup Overview',
+    productPrice: 85,
+    __v: 0
+  },
+  userId: 6107816d5ad2f40004957e39,
+  idPicture: 'image_1627972338957.png',
+  idSignature: 'image_1627972338959.png',
+  price: 85,
+  __v: 0
+}

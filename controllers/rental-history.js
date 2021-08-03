@@ -30,7 +30,7 @@ exports.getAllRentalHistories = promise(async (req, res) => {
         .populate("productId")
     if (!rentalHistories) throw new Exceptions.NotFound("No rental history found")
 
-    fs.writeFileSync("./upload/all-rental-histories.txt", `${rentalHistories}`)
+    fs.writeFileSync("./upload/all-order-histories.txt", `${rentalHistories}`)
 
     res.status(200).json({ rentalHistories })
 })
