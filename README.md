@@ -54,6 +54,7 @@ password: 12345
     productName:
     productDescription:
     productPrice:
+    paymentLink:
 }
 ```
 

@@ -13,6 +13,10 @@ const productSchema = new schema({
     productPrice: {
         type: Number,
         require: true
+    },
+    paymentLink: {
+        type: String,
+        require: true
     }
 })
 
